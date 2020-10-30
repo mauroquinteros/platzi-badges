@@ -1,0 +1,15 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+// Variables
+:root {
+  --dark-clr: #223354;
+  --dark-light-clr: #1c3643;
+  --light-clr: #eeeeee;
+}
