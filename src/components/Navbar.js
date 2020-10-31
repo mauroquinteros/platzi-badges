@@ -18,14 +18,14 @@ const Navbar = () => {
           </span>
           <span className="fw-bold fs-medium">badges</span>
         </Link>
-        <div className="Navbar__link-container">
+        {/* <div className="Navbar__link-container">
           <Link className="Navbar__link p-1 fw-light" to="/badges">
             Lista de Badges
           </Link>
           <Link className="Navbar__link p-1 fw-light" to="/badges/new">
             Agregar participante
           </Link>
-        </div>
+        </div> */}
       </section>
     </nav>
   );

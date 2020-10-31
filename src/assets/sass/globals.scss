@@ -6,10 +6,23 @@
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Anton");
 
 // Variables
 :root {
+  // Colors
   --dark-clr: #223354;
   --dark-light-clr: #1c3643;
   --light-clr: #eeeeee;
+  --home-bg: #1b1b25;
+  --green-clr: #7dcd40;
+  // Font sizes
+  --ft-size-s: 1.2rem;
+  --ft-size-n: 1.4rem;
+  --ft-size-m: 1.8rem;
+  --ft-size-lg: 2.8rem;
+  // Sizes
+  --nav-height: 6rem;
+  --platziconf-width: 18rem;
+  --astronauts-width: 24rem;
 }

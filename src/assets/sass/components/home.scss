@@ -1,0 +1,46 @@
+.Home {
+  height: calc(100vh - var(--nav-height));
+  background-color: var(--home-bg);
+  background-image: url('../../images/stars.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--light-clr);
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__info {
+    text-align: center;
+  }
+  &__title {
+    margin-bottom: 0.3em;
+    font-family: 'Anton';
+    text-transform: uppercase;
+  }
+  &__description {
+    margin: 0 0 1.6rem 0;
+  }
+  &__image {
+    margin: 0 auto;
+    &-info {
+      width: var(--platziconf-width);
+    }
+    &-astronauts {
+      width: var(--astronauts-width);
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__button {
+    background: var(--green-clr);
+    color: var(--light-clr);
+    text-decoration: none;
+  }
+}
