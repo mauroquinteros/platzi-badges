@@ -1,0 +1,19 @@
+.BadgeHero {
+  width: 100%;
+  background-color: var(--home-bg);
+  background-image: url('../../images/stars.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__container {
+    width: var(--platziconf-width);
+    padding: 2rem 0;
+    margin: 0 auto;
+    text-align: center;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

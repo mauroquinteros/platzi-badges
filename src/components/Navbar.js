@@ -7,8 +7,8 @@ import '../assets/sass/components/navbar.scss'
 
 const Navbar = () => {
   return (
-    <nav className="Navbar">
-      <section className="Navbar__container">
+    <nav className="container Navbar">
+      <div className="Navbar__container">
         <Link className="Navbar__link Navbar__link-logo" to="/">
           <figure className="Navbar__logo">
             <img src={logoBadge} alt="platzi logo badge" loading="lazy"/>
@@ -26,7 +26,7 @@ const Navbar = () => {
             Agregar participante
           </Link>
         </div> */}
-      </section>
+      </div>
     </nav>
   );
 };

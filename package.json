@@ -21,6 +21,8 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "author": "Mauro Quinteros <quinterosmauro0599@gmail.com>",
+  "license": "MIT",
   "browserslist": {
     "production": [
       ">0.2%",
