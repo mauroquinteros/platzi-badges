@@ -10,4 +10,3 @@ export const getBadges = async () => {
     throw new Error(error.message);
   }
 };
- 

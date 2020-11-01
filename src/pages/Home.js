@@ -18,7 +18,7 @@ const Home = () => {
           <p className="Home__description">
             La forma más sencilla de manejar tus conferencias
           </p>
-          <Link to="/badges/" className="Home__button btn fs-medium">
+          <Link to="/badges/" className="Home__button btn fs-medium fw-bold">
             Empezar ahora
           </Link>
         </div>

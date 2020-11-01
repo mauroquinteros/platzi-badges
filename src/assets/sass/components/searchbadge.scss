@@ -1,0 +1,38 @@
+.SearchBadge {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.8rem;
+  &__container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 8rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: var(--white-clr);
+    border: 0.1rem solid var(--blue-clr);
+  }
+  &__input {
+    display: inline-block;
+    width: calc(100% - var(--search-size));
+    height: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    border: 0;
+    outline: 0;
+    color: var(--lightgray-clr);
+  }
+  &__icon {
+    width: var(--search-size);
+  }
+  #search-input::placeholder {
+    color: var(--lightgray-clr);
+  }
+  &__button {
+    background: var(--lightblue-clr);
+    color: var(--white-clr);
+    border: 0;
+    outline-color: var(--blue-clr);
+  }
+}
