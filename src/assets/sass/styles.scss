@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Lato";
+  background-color: var(--gray-clr);
   font-size: var(--ft-size-n);
   color: var(--dark-clr);
 }
@@ -39,15 +40,16 @@ figure {
 .fs-large {
   font-size: var(--ft-size-lg);
 }
-.clr-light {
-  color: var(--light-clr);
-}
 .btn {
   display: inline-block;
-  padding: .8rem 1.6rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  font-weight: 700;
+  padding: 0.8rem 1.6rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  background: var(--green-clr);
+  color: var(--white-clr);
 }
 .p-1 {
   padding: 1rem;

@@ -1,0 +1,22 @@
+.BadgeList {
+  &__container {
+    list-style-type: none;
+    padding: 3rem 0;
+    margin: 0;
+  }
+  &__empty {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &-message {
+      margin: 0 0 1.6rem;
+    }
+    &-image {
+      width: 100%;
+      max-width: var(--empty-size);
+    }
+  }
+}

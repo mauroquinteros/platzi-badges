@@ -15,7 +15,7 @@
     justify-content: center;
   }
   &__info {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     text-align: center;
   }
   &__title {
@@ -38,10 +38,5 @@
       width: 100%;
       object-fit: cover;
     }
-  }
-  &__button {
-    background: var(--green-clr);
-    color: var(--light-clr);
-    text-decoration: none;
   }
 }
