@@ -21,18 +21,21 @@
     padding: 0 1rem;
     border: 0;
     outline: 0;
-    color: var(--lightgray-clr);
+    color: var(--gray-clr);
   }
   &__icon {
     width: var(--search-size);
   }
   #search-input::placeholder {
-    color: var(--lightgray-clr);
+    color: var(--gray-clr);
   }
   &__button {
     background: var(--lightblue-clr);
     color: var(--white-clr);
-    border: 0;
-    outline-color: var(--blue-clr);
+    outline: none;
+    border: 0.1rem solid var(--lightblue-clr);
+    &:focus, &:active {
+      border: 0.2rem solid var(--lightblue-clr);
+    }
   }
 }

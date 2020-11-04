@@ -1,7 +1,7 @@
 // imports
 @import "./globals.scss";
 
-// globals styles
+// globals
 html {
   font-size: 62.5%;
 }
@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Lato";
-  background-color: var(--gray-clr);
+  background-color: var(--lightgray-clr);
   font-size: var(--ft-size-n);
   color: var(--dark-clr);
 }
@@ -18,7 +18,7 @@ figure {
   padding: 0;
 }
 
-// utils styles
+// utils
 .container {
   padding: 1rem 1.6rem;
 }
@@ -41,14 +41,21 @@ figure {
   font-size: var(--ft-size-lg);
 }
 .btn {
+  font-family: "Lato";
   display: inline-block;
   padding: 0.8rem 1.6rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   border-radius: 0.5rem;
+  border: 0.1rem solid var(--green-clr);
   text-decoration: none;
   background: var(--green-clr);
   color: var(--white-clr);
+  outline: none;
+  &:focus, &:active {
+    border-width: 0.2rem;
+    border-color: var(--darkgreen-clr);
+  }
 }
 .p-1 {
   padding: 1rem;

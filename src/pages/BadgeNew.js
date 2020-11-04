@@ -5,6 +5,9 @@ import BadgeHero from "../components/BadgeHero";
 import BadgeForm from "../components/BadgeForm";
 import BadgeCard from "../components/BadgeCard";
 
+// Assets
+import "../assets/sass/components/badgenew.scss";
+
 // Utils
 import { addAttendant } from "../utils/requests";
 
@@ -59,17 +62,17 @@ const BadgeNew = ({ history }) => {
   return (
     <>
       <BadgeHero />
-      <section className="container BadgesNew">
-        <div className="BadgesNew__container">
+      <section className="container BadgeNew">
+        <div className="BadgeNew__container">
           {state.loading || state.data ? (
             <h1>Esta cargando (Agregar componente)</h1>
           ) : (
             <>
-              <div>
-                <div>
+              <div className="BadgeNew__wrapper">
+                <div className="BadgeNew__child">
                   <BadgeCard />
                 </div>
-                <div>
+                <div className="BadgeNew__child">
                   <BadgeForm
                     onChange={handleChange}
                     onSubmit={handleSubmit}

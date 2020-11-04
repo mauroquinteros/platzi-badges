@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 // Components
 import DynamicSelect from "./DynamicSelect";
 
+// Assets
+import '../assets/sass/components/badgeform.scss'
+
 // Utils
 import { getJobs } from "../utils/requests";
 
@@ -50,7 +53,7 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
     <form method="post" className="BadgeForm" onSubmit={onSubmit}>
       {error && <p className="BadgeForm__error">500: Server Error</p>}
       <div className="BadgeForm__group">
-        <label>Nombres</label>
+        <label className="BadgeForm__label fw-bold">Nombres</label>
         <input
           className="BadgeForm__input"
           type="text"
@@ -60,7 +63,7 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
         />
       </div>
       <div className="BadgeForm__group">
-        <label>Apellidos</label>
+        <label className="BadgeForm__label fw-bold">Apellidos</label>
         <input
           className="BadgeForm__input"
           type="text"
@@ -70,7 +73,7 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
         />
       </div>
       <div className="BadgeForm__group">
-        <label>Correo</label>
+        <label className="BadgeForm__label fw-bold">Correo</label>
         <input
           className="BadgeForm__input"
           type="email"
@@ -80,8 +83,9 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
         />
       </div>
       <div className="BadgeForm__group">
-        <label>Título Profesional</label>
+        <label className="BadgeForm__label fw-bold">Título Profesional</label>
         <DynamicSelect
+          className="BadgeForm__input"
           name="id_job"
           onChange={onChange}
           value={id_job}
@@ -89,7 +93,7 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
         />
       </div>
       <div className="BadgeForm__group">
-        <label>Twitter</label>
+        <label className="BadgeForm__label fw-bold">Twitter</label>
         <input
           className="BadgeForm__input"
           type="text"
@@ -98,9 +102,11 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
           value={twitter_user}
         />
       </div>
-      <button type="submit" className="btn">
-        Guardar
-      </button>
+      <div className="BadgeForm__submit-container">
+        <button type="submit" className="btn fw-bold BadgeForm__submit">
+          Guardar
+        </button>
+      </div>
     </form>
   );
 };
