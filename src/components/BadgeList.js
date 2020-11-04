@@ -8,6 +8,7 @@ import badgesEmpty from "../assets/images/badges-empty.svg";
 import "../assets/sass/components/badgelist.scss";
 
 const BadgeList = ({ badges }) => {
+  const badgesReverse = [...badges].reverse()
   return (
     <section className="BadgeList">
       {badges.length === 0 ? (
@@ -22,7 +23,7 @@ const BadgeList = ({ badges }) => {
         </div>
       ) : (
         <ul className="BadgeList__container">
-          {badges.map(({ id_attendant, ...details }) => (
+          {badgesReverse.map(({ id_attendant, ...details }) => (
             <BadgeItem
               key={id_attendant}
               idAttendant={id_attendant}
