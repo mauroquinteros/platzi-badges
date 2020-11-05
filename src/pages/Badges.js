@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import BadgeHero from "../components/BadgeHero";
 import SearchBadge from '../components/SearchBadge'
 import BadgeList from "../components/BadgeList";
-import Error from "../components/Error";
+import ServerError from "../components/ServerError";
 
 // Assets
 import "../assets/sass/components/badges.scss";
@@ -51,7 +51,7 @@ const Badges = () => {
       <section className="container Badges">
         <div className="Badges__container">
           {badges.error ? (
-            <Error title="Ocurrío un Error!" message="Inténtalo más tarde" />
+            <ServerError title="Ocurrío un Error!" message="Inténtalo más tarde" />
           ) : badges.loading & !badges.data ? (
             <h1>Esta cargando (Agregar componente)</h1>
           ) : (

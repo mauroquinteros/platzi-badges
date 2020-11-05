@@ -5,7 +5,7 @@ export const getBadges = async () => {
     const response = await fetch(`${URL}/attendants/`);
     const { data } = await response.json();
     if (Array.isArray(data)) return data;
-    else return null;
+    else throw new Error("Error al realizar la petición");
   } catch (error) {
     throw new Error(error.message);
   }
@@ -16,7 +16,7 @@ export const getJobs = async () => {
     const response = await fetch(`${URL}/jobs/`);
     const { data } = await response.json();
     if (Array.isArray(data)) return data;
-    else return null;
+    else throw new Error("Error al realizar la petición");
   } catch (error) {
     throw new Error(error.message);
   }
@@ -33,6 +33,19 @@ export const addAttendant = async (attendant) => {
     });
     const data = await response.json();
     return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+export const getAttendantById = async (idBadge) => {
+  try {
+    const response = await fetch(`${URL}/attendants/${idBadge}/`);
+    const { data } = await response.json();
+    if (Array.isArray(data)) {
+      const [attendant] = data;
+      return attendant;
+    } else throw new Error("Error al realizar la petición");
   } catch (error) {
     throw new Error(error.message);
   }

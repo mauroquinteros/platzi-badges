@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // Components
 import DynamicSelect from "./DynamicSelect";
+import FormError from './FormError'
 
 // Assets
 import '../assets/sass/components/badgeform.scss'
@@ -51,7 +52,7 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
   console.log(jobs);
   return (
     <form method="post" className="BadgeForm" onSubmit={onSubmit}>
-      {error && <p className="BadgeForm__error">500: Server Error</p>}
+      {error && <FormError title="Error code: 500" message="Error al registrar el participante!" />}
       <div className="BadgeForm__group">
         <label className="BadgeForm__label fw-bold">Nombres</label>
         <input

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 // Components
 import BadgeHero from "../components/BadgeHero";
 import BadgeForm from "../components/BadgeForm";
-import BadgeCard from "../components/BadgeCard";
 
 // Assets
 import "../assets/sass/components/badgenew.scss";
@@ -41,12 +40,16 @@ const BadgeNew = ({ history }) => {
         error: null,
       }));
       const data = await addAttendant(attendant);
-      setState((prevState) => ({
-        ...prevState,
-        loading: false,
-        error: null,
-        data,
-      }));
+      if(data.error) {
+        throw new Error('Error al registrar el participante!')
+      } else {
+        setState((prevState) => ({
+          ...prevState,
+          loading: false,
+          error: null,
+          data,
+        }));
+      }
       history.push("/badges");
     } catch (error) {
       setState((prevState) => ({
@@ -70,7 +73,7 @@ const BadgeNew = ({ history }) => {
             <>
               <div className="BadgeNew__wrapper">
                 <div className="BadgeNew__child">
-                  <BadgeCard />
+                  <h1>Agregar componente badgecardform</h1>
                 </div>
                 <div className="BadgeNew__child">
                   <BadgeForm
