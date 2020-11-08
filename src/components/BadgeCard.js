@@ -1,32 +1,50 @@
 import React from "react";
 
 // Assets
-import platziConf from '../assets/images/platziconf-logo.svg'
-import twitterLogo from '../assets/images/twitter.svg'
+import platziConf from "../assets/images/badge-header.svg";
+import twitterLogo from "../assets/images/twitter.svg";
+import "../assets/sass/components/badgecard.scss";
 
 const BadgeCard = ({ badge }) => {
-  const { first_name, last_name, twitter_user, avatar_url, id_job} = badge
+  const {
+    first_name,
+    last_name,
+    twitter_user,
+    avatar_url,
+    job: { job_title },
+  } = badge;
   return (
     <article className="BadgeCard">
       <figure className="BadgeCard__header">
-        <img src={platziConf} alt="conference logo"/>
+        <img src={platziConf} alt="conference logo" />
       </figure>
       <div className="BadgeCard__body BadgeCard__body-main">
-        <img src={avatar_url} alt={`${first_name} ${last_name}`}/>
-        <h1>
+        <img
+          className="BadgeCard__avatar"
+          src={avatar_url}
+          alt={`${first_name} ${last_name}`}
+        />
+        <h1 className="BadgeCard__fullname fs-medium fw-bold">
           {first_name}
-          <br/>
+          <br />
           {last_name}
         </h1>
       </div>
       <div className="BadgeCard__body BadgeCard__body-info">
-        <p>Trabajo o profesión: {id_job}</p>
-        <div>
-          <img src={twitterLogo} alt="twitter logo"/>
-          <span>@{twitter_user}</span>
+        <p>{job_title}</p>
+        <div className="BadgeCard__twitter">
+          <img
+            className="BadgeCard__twitter-logo"
+            src={twitterLogo}
+            alt="twitter logo"
+            loading="lazy"
+          />
+          <span className="BadgeCard__twitter-user fs-normal fw-bold">
+            @{twitter_user}
+          </span>
         </div>
       </div>
-      <footer>
+      <footer className="BadgeCard__footer">
         <p>#platziconf</p>
       </footer>
     </article>

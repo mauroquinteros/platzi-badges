@@ -5,20 +5,25 @@ import { Link } from "react-router-dom";
 import BadgeHero from "../components/BadgeHero";
 import ServerError from "../components/ServerError";
 import BadgeCard from "../components/BadgeCard";
+import Modal from "../components/Modal";
 
 // Assets
 import "../assets/sass/components/badgedetails.scss";
 
 // Utils
-import { getAttendantById } from "../utils/requests";
+import { getAttendantById, deleteAttendant } from "../utils/requests";
 
-const BadgeDetails = ({ match }) => {
+const BadgeDetails = ({ match, history }) => {
   const [state, setState] = useState({
-    idBadge: match.params.badgeId,
     loading: true,
     data: null,
     error: null,
   });
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleModal = () => {
+    setOpenModal((prev) => !prev);
+  };
 
   useEffect(() => {
     async function getData(id) {
@@ -30,7 +35,7 @@ const BadgeDetails = ({ match }) => {
         }));
         const idBadge = parseInt(id);
         const data = await getAttendantById(idBadge);
-        console.log(data);
+        console.log(data)
         setState((prevState) => ({
           ...prevState,
           loading: false,
@@ -44,14 +49,38 @@ const BadgeDetails = ({ match }) => {
         }));
       }
     }
-    getData(state.idBadge);
+    getData(match.params.badgeId);
 
     return () => {
       const controller = new AbortController();
       controller.abort();
       console.log("unmounting");
     };
-  }, [state.idBadge]);
+  }, [match]);
+
+  const handleDeleteBadge = async () => {
+    try {
+      setState((prev) => ({
+        ...prev,
+        loading: true,
+        error: null,
+      }));
+      const data = await deleteAttendant(match.params.badgeId);
+      console.log(data);
+      setState((prev) => ({
+        ...prev,
+        loading: false,
+        data,
+      }));
+      history.push("/badges");
+    } catch (error) {
+      setState((prev) => ({
+        ...prev,
+        loading: false,
+        error: error,
+      }));
+    }
+  };
 
   return (
     <>
@@ -64,22 +93,32 @@ const BadgeDetails = ({ match }) => {
               message="Inténtalo más tarde"
             />
           ) : state.loading ? (
-            <h1>Cargando (agregar componente)</h1>
+            <h1>Cargando (agregar componente details)</h1>
           ) : (
             <div className="BadgeDetails__wrapper">
               <div className="BadgeDetails__node">
                 <BadgeCard badge={state.data} action="detail" />
               </div>
               <div className="BadgeDetails__node">
-                <h1>Acciones</h1>
-                <div className="BadgeDetails__button-container">
-                  <Link
-                    className="BadgeDetails__button"
-                    to={`/badges/${state.idBadge}/edit/`}
-                  >
-                    Editar
-                  </Link>
-                  <button className="BadgeDetails__button">Eliminar</button>
+                <div>
+                  <h2 className="BadgeDetails__button-title fs-medium">
+                    Acciones
+                  </h2>
+                  <div className="BadgeDetails__button-container">
+                    <Link
+                      className="BadgeDetails__button btn fw-bold"
+                      to={`/badges/${match.params.badgeId}/edit/`}
+                    >
+                      Editar
+                    </Link>
+                    <button
+                      className="BadgeDetails__button danger btn fw-bold"
+                      onClick={handleModal}
+                    >
+                      Eliminar
+                    </button>
+                    <Modal isOpen={openModal} setOpenModal={setOpenModal} onDelete={handleDeleteBadge}/>
+                  </div>
                 </div>
               </div>
             </div>

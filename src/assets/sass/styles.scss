@@ -52,6 +52,7 @@ figure {
   background: var(--green-clr);
   color: var(--white-clr);
   outline: none;
+  cursor: pointer;
   &:focus, &:active {
     border-width: 0.2rem;
     border-color: var(--darkgreen-clr);

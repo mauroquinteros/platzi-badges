@@ -1,0 +1,66 @@
+.BadgeCard {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0.4rem 1rem 0 rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0.4rem 1rem 0 rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0.4rem 1rem 0 rgba(0,0,0,0.5);
+  &__header {
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    background: var(--black-clr);
+    img {
+      object-fit: contain;
+    }
+  }
+  &__body {
+    padding: 0.6rem 1rem;
+    &-main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--white-clr);
+    }
+    &-info {
+      text-align: center;
+      p {
+        margin: 0;
+      }
+    }
+  }
+  &__avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    margin-right: 2rem;
+    border-radius: 50%;
+    background-color: var(--lightgray-clr);
+  }
+  &__fullname {
+    text-transform: uppercase;
+    margin: 0;
+  }
+  &__twitter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    &-logo {
+      width: var(--twitter-size);
+      height: var(--twitter-size);
+      margin-right: 0.4rem;
+    }
+    &-user {
+      color: var(--lightblue-clr);
+    }
+  }
+  &__footer {
+    padding: 1.5rem 0;
+    background: var(--white-clr);
+    text-align: center;
+    color: var(--green-clr);
+    p {
+      margin: 0;
+    }
+  }
+}

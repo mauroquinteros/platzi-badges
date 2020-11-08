@@ -53,7 +53,7 @@ const Badges = () => {
           {badges.error ? (
             <ServerError title="Ocurrío un Error!" message="Inténtalo más tarde" />
           ) : badges.loading & !badges.data ? (
-            <h1>Esta cargando (Agregar componente)</h1>
+            <h1>Esta cargando (Agregar componente badges)</h1>
           ) : (
             <>
               <SearchBadge />

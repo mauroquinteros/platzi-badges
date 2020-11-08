@@ -1,0 +1,28 @@
+.BadgeDetails {
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__node {
+    width: 100%;
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
+  }
+  &__button {
+    &-title {
+      margin: 0 0 1rem;
+    }
+    &.danger {
+      margin-left: 1rem;
+      border-color: var(--lightred-clr);
+      background-color: var(--lightred-clr);
+      &:focus, &:active {
+        border-width: 0.2rem;
+        border-color: var(--lightred-clr);
+      }
+    }
+  }
+}

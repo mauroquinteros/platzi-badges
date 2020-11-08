@@ -50,3 +50,15 @@ export const getAttendantById = async (idBadge) => {
     throw new Error(error.message);
   }
 };
+
+export const deleteAttendant = async (idBadge) => {
+  try {
+    const response = await fetch(`${URL}/attendants/${idBadge}/`, {
+      method: "DELETE"
+    });
+    const data = await response.json();
+    return data
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}

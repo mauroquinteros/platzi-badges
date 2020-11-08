@@ -1,0 +1,68 @@
+.Modal {
+  &__background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  rgba(0, 0, 0, 0.8);
+  }
+  &__wrapper {
+    position: relative;
+    z-index: 10;
+    width: 30rem;
+    height: 20rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 0.5rem 1.6rem rgba(0, 0, 0, 0.2);
+    background: var(--white-clr);
+    color: var(--black-clr);
+    border-radius: 1rem;
+  }
+  &__title, &__message {
+    text-align: center;
+  }
+  &__title {
+    margin: 1em 0 0;
+  }
+  &__message {
+    margin: 1.2em 0;
+  }
+  &__button {
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &.delete {
+      margin-right: 1.6rem;
+      border-color: var(--lightred-clr);
+      background-color: var(--lightred-clr);
+      &:focus, &:active {
+        border-width: 0.2rem;
+        border-color: var(--lightred-clr);
+      }
+    }
+    &-close {
+      position: absolute;
+      right: 4%;
+      top: 4%;
+      display: flex;
+      padding: 0.5rem;
+      background: var(--white-clr);
+      border: 0.1rem solid var(--gray-clr);
+      border-radius: 0.5rem;
+      outline: none;
+      &:focus, &:active {
+        border: 0.1rem solid var(--darkgray-clr);
+      }
+    }
+  }
+  &__icon-close {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: var(--gray-clr);
+  }
+}
