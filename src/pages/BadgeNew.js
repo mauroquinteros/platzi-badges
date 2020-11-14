@@ -40,16 +40,12 @@ const BadgeNew = ({ history }) => {
         error: null,
       }));
       const data = await addAttendant(attendant);
-      if(data.error) {
-        throw new Error('Error al registrar el participante!')
-      } else {
-        setState((prevState) => ({
-          ...prevState,
-          loading: false,
-          error: null,
-          data,
-        }));
-      }
+      setState((prevState) => ({
+        ...prevState,
+        loading: false,
+        error: null,
+        data,
+      }));
       history.push("/badges");
     } catch (error) {
       setState((prevState) => ({
@@ -73,7 +69,7 @@ const BadgeNew = ({ history }) => {
             <>
               <div className="BadgeNew__wrapper">
                 <div className="BadgeNew__child">
-                  <h1>Agregar componente badgecardform</h1>
+                  <h1>Agregar componente badgecard form</h1>
                 </div>
                 <div className="BadgeNew__child">
                   <BadgeForm
@@ -93,3 +89,5 @@ const BadgeNew = ({ history }) => {
 };
 
 export default BadgeNew;
+
+// $0.querySelector(`option[value="${$0.value}"]`)

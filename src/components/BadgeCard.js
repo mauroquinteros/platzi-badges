@@ -5,14 +5,19 @@ import platziConf from "../assets/images/badge-header.svg";
 import twitterLogo from "../assets/images/twitter.svg";
 import "../assets/sass/components/badgecard.scss";
 
-const BadgeCard = ({ badge }) => {
+// Utils
+import { createUrl } from "../utils";
+
+const BadgePreview = ({ description }) => {
   const {
     first_name,
     last_name,
+    email,
     twitter_user,
-    avatar_url,
     job: { job_title },
-  } = badge;
+  } = description;
+
+  const avatarUrl = createUrl(email);
   return (
     <article className="BadgeCard">
       <figure className="BadgeCard__header">
@@ -21,7 +26,7 @@ const BadgeCard = ({ badge }) => {
       <div className="BadgeCard__body BadgeCard__body-main">
         <img
           className="BadgeCard__avatar"
-          src={avatar_url}
+          src={avatarUrl}
           alt={`${first_name} ${last_name}`}
         />
         <h1 className="BadgeCard__fullname fs-medium fw-bold">
@@ -51,4 +56,4 @@ const BadgeCard = ({ badge }) => {
   );
 };
 
-export default BadgeCard;
+export default BadgePreview;

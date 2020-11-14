@@ -11,33 +11,33 @@ import '../assets/sass/components/badgeform.scss'
 import { getJobs } from "../utils/requests";
 
 const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
-  const { first_name, last_name, email, twitter_user, id_job } = formValues;
+  const { first_name, last_name, email, twitter_user, job: {id_job} } = formValues;
   const [jobs, setJobs] = useState({
     loading: true,
-    data: "",
+    data: null,
     error: null,
   });
 
   useEffect(() => {
     async function getData() {
       try {
-        setJobs((prevBadges) => ({
-          ...prevBadges,
+        setJobs({
           loading: true,
+          data: null,
           error: null,
-        }));
+        });
         const data = await getJobs();
-        setJobs((prevBadges) => ({
-          ...prevBadges,
+        setJobs({
           loading: false,
+          error: null,
           data,
-        }));
+        });
       } catch (error) {
-        setJobs((prevBadges) => ({
-          ...prevBadges,
+        setJobs({
           loading: false,
-          error: error,
-        }));
+          data: null,
+          error,
+        });
       }
     }
     getData();
@@ -45,11 +45,12 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
     return () => {
       const controller = new AbortController();
       controller.abort();
-      console.log("unmounting");
+      console.log("unmounting badge form");
     };
   }, []);
 
   console.log(jobs);
+  console.log('render badgeform')
   return (
     <form method="post" className="BadgeForm" onSubmit={onSubmit}>
       {error && <FormError title="Error code: 500" message="Error al registrar el participante!" />}
@@ -87,7 +88,7 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
         <label className="BadgeForm__label fw-bold">Título Profesional</label>
         <DynamicSelect
           className="BadgeForm__input"
-          name="id_job"
+          name="job"
           onChange={onChange}
           value={id_job}
           jobs={jobs}

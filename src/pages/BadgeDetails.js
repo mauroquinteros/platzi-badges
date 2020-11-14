@@ -19,6 +19,15 @@ const BadgeDetails = ({ match, history }) => {
     data: null,
     error: null,
   });
+  const [badge, setBadge] = useState({
+    avatar_url: "",
+    email: "",
+    first_name: "",
+    id_attendant: 0,
+    job: {},
+    last_name: "",
+    twitter_user: "",
+  });
   const [openModal, setOpenModal] = useState(false);
 
   const handleModal = () => {
@@ -28,25 +37,25 @@ const BadgeDetails = ({ match, history }) => {
   useEffect(() => {
     async function getData(id) {
       try {
-        setState((prevState) => ({
-          ...prevState,
+        setState({
           loading: true,
+          data: null,
           error: null,
-        }));
+        });
         const idBadge = parseInt(id);
         const data = await getAttendantById(idBadge);
-        console.log(data)
-        setState((prevState) => ({
-          ...prevState,
+        setBadge(data);
+        setState({
           loading: false,
-          data,
-        }));
+          error: null,
+          data: null,
+        });
       } catch (error) {
-        setState((prevState) => ({
-          ...prevState,
+        setState({
           loading: false,
-          error: error,
-        }));
+          data: null,
+          error,
+        });
       }
     }
     getData(match.params.badgeId);
@@ -54,31 +63,31 @@ const BadgeDetails = ({ match, history }) => {
     return () => {
       const controller = new AbortController();
       controller.abort();
-      console.log("unmounting");
+      console.log("unmounting badge details");
     };
   }, [match]);
 
   const handleDeleteBadge = async () => {
     try {
-      setState((prev) => ({
-        ...prev,
+      setState({
         loading: true,
+        data: null,
         error: null,
-      }));
+      });
       const data = await deleteAttendant(match.params.badgeId);
       console.log(data);
-      setState((prev) => ({
-        ...prev,
-        loading: false,
+      setState({
+        loading: true,
+        error: null,
         data,
-      }));
+      });
       history.push("/badges");
     } catch (error) {
-      setState((prev) => ({
-        ...prev,
-        loading: false,
-        error: error,
-      }));
+      setState({
+        loading: true,
+        data: null,
+        error,
+      });
     }
   };
 
@@ -92,12 +101,12 @@ const BadgeDetails = ({ match, history }) => {
               title="Ocurrío un Error!"
               message="Inténtalo más tarde"
             />
-          ) : state.loading ? (
+          ) : state.loading || state.data ? (
             <h1>Cargando (agregar componente details)</h1>
           ) : (
             <div className="BadgeDetails__wrapper">
               <div className="BadgeDetails__node">
-                <BadgeCard badge={state.data} action="detail" />
+                <BadgeCard description={badge} />
               </div>
               <div className="BadgeDetails__node">
                 <div>
@@ -117,7 +126,11 @@ const BadgeDetails = ({ match, history }) => {
                     >
                       Eliminar
                     </button>
-                    <Modal isOpen={openModal} setOpenModal={setOpenModal} onDelete={handleDeleteBadge}/>
+                    <Modal
+                      isOpen={openModal}
+                      setOpenModal={setOpenModal}
+                      onDelete={handleDeleteBadge}
+                    />
                   </div>
                 </div>
               </div>

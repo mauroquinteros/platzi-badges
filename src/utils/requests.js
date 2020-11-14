@@ -51,6 +51,22 @@ export const getAttendantById = async (idBadge) => {
   }
 };
 
+export const editAttendant = async (idBadge, attendant) => {
+  try {
+    const response = await fetch(`${URL}/attendants/${idBadge}/`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      "body": JSON.stringify(attendant)
+    })
+    const data = await response.json()
+    return data
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
+
 export const deleteAttendant = async (idBadge) => {
   try {
     const response = await fetch(`${URL}/attendants/${idBadge}/`, {
