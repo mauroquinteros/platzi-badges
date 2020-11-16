@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 // Components
 import BadgeHero from "../components/BadgeHero";
-import SearchBadge from '../components/SearchBadge'
+import SearchBadge from "../components/SearchBadge";
 import BadgeList from "../components/BadgeList";
 import ServerError from "../components/ServerError";
+import Loading from "../components/Loading";
 
 // Assets
 import "../assets/sass/components/badges.scss";
@@ -19,30 +20,38 @@ const Badges = () => {
     data: null,
     error: null,
   });
+  const [query, setQuery] = useState("")
+
+  const handleQuery = (ev) => {
+    setQuery(ev.target.value)
+  }
 
   useEffect(() => {
     async function getData() {
       try {
-        setBadges((prevBadges) => ({
-          ...prevBadges,
+        setBadges({
           loading: true,
           error: null,
-        }));
+        });
         const data = await getBadges();
-        setBadges((prevBadges) => ({
-          ...prevBadges,
+        setBadges({
           loading: false,
+          error: null,
           data,
-        }));
+        });
       } catch (error) {
-        setBadges((prevBadges) => ({
-          ...prevBadges,
+        setBadges({
           loading: false,
-          error: error.message,
-        }));
+          error,
+        });
       }
     }
     getData();
+
+    return () => {
+      const controller = new AbortController();
+      controller.abort();
+    };
   }, []);
 
   return (
@@ -51,18 +60,21 @@ const Badges = () => {
       <section className="container Badges">
         <div className="Badges__container">
           {badges.error ? (
-            <ServerError title="Ocurrío un Error!" message="Inténtalo más tarde" />
+            <ServerError
+              title="Ocurrío un Error!"
+              message="Inténtalo más tarde"
+            />
           ) : badges.loading & !badges.data ? (
-            <h1>Esta cargando (Agregar componente badges)</h1>
+            <Loading />
           ) : (
             <>
-              <SearchBadge />
+              <SearchBadge onChange={handleQuery} value={query} />
               <div className="Badges__buttons">
                 <Link to="/badges/new" className="btn">
                   Nuevo Badge
                 </Link>
               </div>
-              <BadgeList badges={badges.data} />
+              <BadgeList badges={badges.data} query={query} />
             </>
           )}
         </div>

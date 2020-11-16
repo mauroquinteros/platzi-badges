@@ -4,10 +4,9 @@ import React from "react";
 import SearchIcon from "../assets/images/search-icon.svg";
 import "../assets/sass/components/searchbadge.scss";
 
-const SearchBadge = () => {
+const SearchBadge = ({onChange, value}) => {
   const onSearch = (ev) => {
     ev.preventDefault();
-    console.log("submit event");
   };
 
   return (
@@ -24,6 +23,8 @@ const SearchBadge = () => {
           type="text"
           placeholder="Buscar por nombre"
           id="search-input"
+          value={value}
+          onChange={onChange}
         />
       </div>
       <button className="SearchBadge__button fs-normal" type="submit">

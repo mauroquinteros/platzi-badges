@@ -30,13 +30,13 @@ const BadgePreview = ({ description }) => {
           alt={`${first_name} ${last_name}`}
         />
         <h1 className="BadgeCard__fullname fs-medium fw-bold">
-          {first_name}
+          {first_name || 'Nombre'}
           <br />
-          {last_name}
+          {last_name || 'Apellido'}
         </h1>
       </div>
       <div className="BadgeCard__body BadgeCard__body-info">
-        <p>{job_title}</p>
+        <p>{job_title || 'Profesión'}</p>
         <div className="BadgeCard__twitter">
           <img
             className="BadgeCard__twitter-logo"
@@ -45,7 +45,7 @@ const BadgePreview = ({ description }) => {
             loading="lazy"
           />
           <span className="BadgeCard__twitter-user fs-normal fw-bold">
-            @{twitter_user}
+            @{twitter_user || 'usuario'}
           </span>
         </div>
       </div>

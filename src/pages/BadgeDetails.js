@@ -6,6 +6,7 @@ import BadgeHero from "../components/BadgeHero";
 import ServerError from "../components/ServerError";
 import BadgeCard from "../components/BadgeCard";
 import Modal from "../components/Modal";
+import Loading from "../components/Loading";
 
 // Assets
 import "../assets/sass/components/badgedetails.scss";
@@ -102,7 +103,7 @@ const BadgeDetails = ({ match, history }) => {
               message="Inténtalo más tarde"
             />
           ) : state.loading || state.data ? (
-            <h1>Cargando (agregar componente details)</h1>
+            <Loading />
           ) : (
             <div className="BadgeDetails__wrapper">
               <div className="BadgeDetails__node">

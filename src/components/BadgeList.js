@@ -7,11 +7,18 @@ import BadgeItem from "../components/BadgeItem";
 import badgesEmpty from "../assets/images/badges-empty.svg";
 import "../assets/sass/components/badgelist.scss";
 
-const BadgeList = ({ badges }) => {
-  const badgesReverse = [...badges].reverse()
+const BadgeList = ({ badges, query }) => {
+  const badgesReverse = [...badges].reverse();
+
+  const filteredBadges = badgesReverse.filter((badge) =>
+    `${badge.first_name} ${badge.last_name}`
+      .toLowerCase()
+      .includes(query.toLowerCase())
+  );
+
   return (
     <section className="BadgeList">
-      {badges.length === 0 ? (
+      {filteredBadges.length === 0 ? (
         <div className="BadgeList__empty">
           <h3 className="BadgeList__empty-message fs-medium">No hay Badges!</h3>
           <img
@@ -23,7 +30,7 @@ const BadgeList = ({ badges }) => {
         </div>
       ) : (
         <ul className="BadgeList__container">
-          {badgesReverse.map(({ id_attendant, ...details }) => (
+          {filteredBadges.map(({ id_attendant, ...details }) => (
             <BadgeItem
               key={id_attendant}
               idAttendant={id_attendant}

@@ -1,0 +1,39 @@
+.Loading {
+  text-align: center;
+  &__container{
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__dot {
+    display: inline-block;
+    height: var(--loading-size);
+    width: var(--loading-size);
+    margin: 0.8rem;
+    border-radius: 50%;
+    animation: loading 2s var(--animation-timing) infinite;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: translateY(calc(-1*var(--loading-size)));
+    background-color: var(--green-clr);
+  }
+  50% {
+    transform: translateY(var(--loading-size));
+    background-color: var(--lightdark-clr);
+  }
+  100% {
+    transform: translateY(calc(-1*var(--loading-size)));
+    background-color: var(--green-clr);
+  }
+
+}
+
+@for $i from 1 through 3 {
+  .Loading div:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.3}s;
+  }
+}

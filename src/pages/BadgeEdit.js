@@ -4,6 +4,10 @@ import React, { useState, useEffect } from "react";
 import BadgeHero from "../components/BadgeHero";
 import BadgeForm from "../components/BadgeForm";
 import BadgeCard from "../components/BadgeCard";
+import Loading from "../components/Loading";
+
+// Assets
+import "../assets/sass/components/badgedit.scss";
 
 // Utils
 import { getAttendantById, editAttendant } from "../utils/requests";
@@ -60,16 +64,16 @@ const BadgeEdit = ({ match, history }) => {
       const data = await editAttendant(idBadge, newAttendant);
       setState({
         loading: false,
-        data,
         error: null,
+        data,
       });
       const link = `/badges/${idBadge}`;
       history.push(link);
     } catch (error) {
       setState({
         loading: false,
-        error,
         data: null,
+        error,
       });
     }
   };
@@ -113,14 +117,14 @@ const BadgeEdit = ({ match, history }) => {
       <section className="container BadgeEdit">
         <div className="BadgeEdit__container">
           {state.loading || state.data ? (
-            <h1>Esta cargando (Editar componente)</h1>
+            <Loading />
           ) : (
             <>
               <div className="BadgeEdit__wrapper">
-                <div className="BadgeEdit__child">
+                <div className="BadgeEdit__node">
                   <BadgeCard description={attendant} />
                 </div>
-                <div className="BadgeEdit__child">
+                <div className="BadgeEdit__node">
                   <BadgeForm
                     onChange={handleChange}
                     onSubmit={handleSubmit}
