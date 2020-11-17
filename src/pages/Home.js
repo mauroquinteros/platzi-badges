@@ -8,7 +8,7 @@ import "../assets/sass/components/home.scss";
 
 const Home = () => {
   return (
-    <section className="container Home">
+    <section className="Home">
       <div className="Home__container">
         <div className="Home__info">
           <figure className="Home__image Home__image-info">

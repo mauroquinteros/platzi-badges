@@ -6,7 +6,7 @@ import "../assets/sass/components/badgehero.scss";
 
 const BadgeHero = () => {
   return (
-    <section className="container BadgeHero">
+    <section className="BadgeHero">
       <figure className="BadgeHero__container">
         <img
           className="BadgeHero__image"

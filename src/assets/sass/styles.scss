@@ -8,7 +8,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Lato";
+  font-family: var(--ft-family);
   background-color: var(--lightgray-clr);
   font-size: var(--ft-size-n);
   color: var(--dark-clr);
@@ -20,7 +20,9 @@ figure {
 
 // utils
 .container {
+  max-width: 65rem;
   padding: 1rem 1.6rem;
+  margin: 0 auto;
 }
 .fw-light {
   font-weight: 300;
@@ -61,3 +63,6 @@ figure {
 .p-1 {
   padding: 1rem;
 }
+
+// Media queries
+@import "./media.scss";

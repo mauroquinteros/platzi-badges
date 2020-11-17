@@ -7,7 +7,7 @@ import "../assets/sass/components/error.scss";
 const Error = ({ title, message }) => {
   return (
     <div className="Error">
-      <h3 className="Error-title fs-medium">{title}</h3>
+      <h3 className="Error-title fs-large">{title}</h3>
       <p className="Error-message fs-normal">{message}</p>
       <img
         className="Error-image"

@@ -33,6 +33,7 @@
     background: var(--lightblue-clr);
     color: var(--white-clr);
     outline: none;
+    margin: 0;
     border: 0.1rem solid var(--lightblue-clr);
     &:focus, &:active {
       border: 0.2rem solid var(--lightblue-clr);

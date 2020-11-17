@@ -1,0 +1,85 @@
+@media screen and (min-width: 540px) {
+  :root {
+    --ft-size-s: 1.5rem;
+    --ft-size-n: 1.6rem;
+    --ft-size-m: 2rem;
+    --ft-size-lg: 3rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --nav-height: 8rem;
+    --astronauts-width: 50rem;
+    --platziconf-width: 20rem;
+  }
+  .Navbar {
+    padding: 1rem 1.6rem;
+    &__logo {
+      min-width: 9rem;
+    }
+  }
+  .Home {
+    &__container {
+      flex-direction: row;
+    }
+    &__info {
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+    &__image-astronauts {
+      margin: 0;
+    }
+  }
+  .BadgeDetails, .BadgeEdit, .BadgeNew {
+    &__container {
+      padding: 2rem 0;
+    }
+  }
+  .BadgeDetails {
+    &__wrapper {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    &__node {
+      &:last-of-type {
+        margin-bottom: 0;
+        margin-left: 4rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --ft-size-m: 2.2rem;
+    --ft-size-lg: 3.4rem;
+    --astronauts-width: 60rem;
+    --platziconf-width: 25rem;
+  }
+  .container {
+    max-width: 70rem;
+  }
+  .Home {
+    &__container {
+      max-width: 70rem;
+    }
+  }
+  .BadgeNew, .BadgeEdit {
+    &__wrapper {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    &__node {
+      &:first-of-type {
+        margin-bottom: 0;
+        margin-right: 2rem;
+      }
+    }
+  }
+  .Modal {
+    &__wrapper {
+      width: 40rem;
+    }
+  }
+}

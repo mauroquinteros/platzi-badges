@@ -20,7 +20,7 @@ const BadgeList = ({ badges, query }) => {
     <section className="BadgeList">
       {filteredBadges.length === 0 ? (
         <div className="BadgeList__empty">
-          <h3 className="BadgeList__empty-message fs-medium">No hay Badges!</h3>
+          <h3 className="BadgeList__empty-message fs-large">No hay Badges!</h3>
           <img
             className="BadgeList__empty-image"
             src={badgesEmpty}

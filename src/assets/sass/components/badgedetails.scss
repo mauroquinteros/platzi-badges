@@ -1,17 +1,26 @@
 .BadgeDetails {
+  &__container {
+    padding: 1rem 0;
+  }
   &__wrapper {
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
   }
   &__node {
-    width: 100%;
+    &:first-of-type {
+      width: 100%;
+      flex: 1 100%;
+    }
     &:last-of-type {
+      min-width: 19rem;
+      flex: 1 auto;
       margin-bottom: 1rem;
     }
   }
   &__button {
+    font-size: var(--ft-size-n);
     &-title {
       margin: 0 0 1rem;
     }
