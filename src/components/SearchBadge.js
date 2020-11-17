@@ -4,7 +4,7 @@ import React from "react";
 import SearchIcon from "../assets/images/search-icon.svg";
 import "../assets/sass/components/searchbadge.scss";
 
-const SearchBadge = ({onChange, value}) => {
+const SearchBadge = ({ onChange, value }) => {
   const onSearch = (ev) => {
     ev.preventDefault();
   };

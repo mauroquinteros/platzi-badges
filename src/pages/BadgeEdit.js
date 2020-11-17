@@ -11,7 +11,7 @@ import "../assets/sass/components/badgedit.scss";
 
 // Utils
 import { getAttendantById, editAttendant } from "../utils/requests";
-import { createAttendantObj } from "../utils/";
+import { createAttendantObj, getAttendantState } from "../utils/";
 
 const BadgeEdit = ({ match, history }) => {
   const [state, setState] = useState({
@@ -32,22 +32,8 @@ const BadgeEdit = ({ match, history }) => {
   const handleChange = ({ target }) => {
     setAttendant((prevState) => {
       const selectName = "job";
-      if (target.name === selectName) {
-        const titleValue = target.querySelector(
-          `option[value="${target.value}"]`
-        ).textContent;
-        return {
-          ...prevState,
-          [target.name]: {
-            id_job: target.value,
-            job_title: titleValue,
-          },
-        };
-      }
-      return {
-        ...prevState,
-        [target.name]: target.value,
-      };
+      const newState = getAttendantState(target, prevState, selectName);
+      return newState;
     });
   };
 
@@ -107,7 +93,6 @@ const BadgeEdit = ({ match, history }) => {
     return () => {
       const controller = new AbortController();
       controller.abort();
-      console.log("unmounting edit page");
     };
   }, [match]);
 

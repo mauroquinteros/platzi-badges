@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 // Assets
-import '../assets/sass/components/loading.scss'
+import "../assets/sass/components/loading.scss";
 
-const Loader = () => {
+const Loading = () => {
   return (
     <div className="Loading__container">
       <div className="Loading">
@@ -12,7 +12,7 @@ const Loader = () => {
         <div className="Loading__dot"></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loading;

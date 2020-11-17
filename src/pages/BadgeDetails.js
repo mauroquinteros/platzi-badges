@@ -64,7 +64,6 @@ const BadgeDetails = ({ match, history }) => {
     return () => {
       const controller = new AbortController();
       controller.abort();
-      console.log("unmounting badge details");
     };
   }, [match]);
 
@@ -76,7 +75,6 @@ const BadgeDetails = ({ match, history }) => {
         error: null,
       });
       const data = await deleteAttendant(match.params.badgeId);
-      console.log(data);
       setState({
         loading: true,
         error: null,

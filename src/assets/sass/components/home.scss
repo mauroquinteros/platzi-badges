@@ -2,7 +2,7 @@
   height: calc(100vh - var(--nav-height));
   padding: 0 1.6rem;
   background-color: var(--black-clr);
-  background-image: url('../../images/stars.svg');
+  background-image: url("../../images/stars.svg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@
   }
   &__title {
     margin-bottom: 0.3em;
-    font-family: 'Anton';
+    font-family: "Anton";
     text-transform: uppercase;
   }
   &__description {

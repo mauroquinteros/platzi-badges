@@ -19,3 +19,22 @@ export const createAttendantObj = (object) => {
   }, {});
   return newObject;
 };
+
+export const getAttendantState = (target, attendant, selectName) => {
+  if (target.name === selectName) {
+    const titleValue = target.querySelector(
+      `option[value="${target.value}"]`
+    ).textContent;
+    return {
+      ...attendant,
+      [target.name]: {
+        id_job: target.value,
+        job_title: titleValue,
+      },
+    };
+  }
+  return {
+    ...attendant,
+    [target.name]: target.value,
+  };
+}

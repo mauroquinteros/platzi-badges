@@ -28,7 +28,8 @@
       margin-left: 1rem;
       border-color: var(--lightred-clr);
       background-color: var(--lightred-clr);
-      &:focus, &:active {
+      &:focus,
+      &:active {
         border-width: 0.2rem;
         border-color: var(--lightred-clr);
       }

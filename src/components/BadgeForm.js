@@ -2,16 +2,22 @@ import React, { useState, useEffect } from "react";
 
 // Components
 import DynamicSelect from "./DynamicSelect";
-import FormError from './FormError'
+import FormError from "./FormError";
 
 // Assets
-import '../assets/sass/components/badgeform.scss'
+import "../assets/sass/components/badgeform.scss";
 
 // Utils
 import { getJobs } from "../utils/requests";
 
 const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
-  const { first_name, last_name, email, twitter_user, job: {id_job} } = formValues;
+  const {
+    first_name,
+    last_name,
+    email,
+    twitter_user,
+    job: { id_job },
+  } = formValues;
   const [jobs, setJobs] = useState({
     loading: true,
     data: null,
@@ -45,15 +51,17 @@ const BadgeForm = ({ onChange, onSubmit, formValues, error }) => {
     return () => {
       const controller = new AbortController();
       controller.abort();
-      console.log("unmounting badge form");
     };
   }, []);
 
-  console.log(jobs);
-  console.log('render badgeform')
   return (
     <form method="post" className="BadgeForm" onSubmit={onSubmit}>
-      {error && <FormError title="Error code: 500" message="Error al registrar el participante!" />}
+      {error && (
+        <FormError
+          title="Error code: 500"
+          message="Error al registrar el participante!"
+        />
+      )}
       <div className="BadgeForm__group">
         <label className="BadgeForm__label fw-bold">Nombres</label>
         <input

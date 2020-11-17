@@ -43,7 +43,7 @@ figure {
   font-size: var(--ft-size-lg);
 }
 .btn {
-  font-family: "Lato";
+  font-family: var(--ft-family);
   display: inline-block;
   padding: 0.8rem 1.6rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
@@ -55,13 +55,11 @@ figure {
   color: var(--white-clr);
   outline: none;
   cursor: pointer;
-  &:focus, &:active {
+  &:focus,
+  &:active {
     border-width: 0.2rem;
     border-color: var(--darkgreen-clr);
   }
-}
-.p-1 {
-  padding: 1rem;
 }
 
 // Media queries

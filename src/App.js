@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // Components
-import Layout from './pages/Layout';
+import Layout from "./pages/Layout";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import Badges from "./pages/Badges";
@@ -11,7 +11,7 @@ import BadgeDetails from "./pages/BadgeDetails";
 import BadgeEdit from "./pages/BadgeEdit";
 
 // Styles
-import './assets/sass/styles.scss'
+import "./assets/sass/styles.scss";
 
 const App = () => {
   return (

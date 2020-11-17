@@ -20,11 +20,11 @@ const Badges = () => {
     data: null,
     error: null,
   });
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
 
   const handleQuery = (ev) => {
-    setQuery(ev.target.value)
-  }
+    setQuery(ev.target.value);
+  };
 
   useEffect(() => {
     async function getData() {

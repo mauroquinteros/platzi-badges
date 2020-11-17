@@ -1,6 +1,6 @@
 .Loading {
   text-align: center;
-  &__container{
+  &__container {
     min-height: 50vh;
     display: flex;
     align-items: center;
@@ -18,7 +18,7 @@
 
 @keyframes loading {
   0% {
-    transform: translateY(calc(-1*var(--loading-size)));
+    transform: translateY(calc(-1 * var(--loading-size)));
     background-color: var(--green-clr);
   }
   50% {
@@ -26,10 +26,9 @@
     background-color: var(--lightdark-clr);
   }
   100% {
-    transform: translateY(calc(-1*var(--loading-size)));
+    transform: translateY(calc(-1 * var(--loading-size)));
     background-color: var(--green-clr);
   }
-
 }
 
 @for $i from 1 through 3 {

@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:  rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);
   }
   &__wrapper {
     position: relative;
@@ -24,7 +24,8 @@
     color: var(--black-clr);
     border-radius: 1rem;
   }
-  &__title, &__message {
+  &__title,
+  &__message {
     text-align: center;
   }
   &__title {
@@ -43,7 +44,8 @@
       margin-right: 1.6rem;
       border-color: var(--lightred-clr);
       background-color: var(--lightred-clr);
-      &:focus, &:active {
+      &:focus,
+      &:active {
         border-width: 0.2rem;
         border-color: var(--lightred-clr);
       }
