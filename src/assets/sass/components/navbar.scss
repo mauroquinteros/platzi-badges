@@ -1,4 +1,5 @@
 .Navbar {
+  position: relative;
   width: 100%;
   height: var(--nav-height);
   background-color: var(--lightdark-clr);
@@ -11,22 +12,15 @@
     margin: 0 auto;
   }
   &__link {
-    padding: 1rem;
     color: var(--light-clr);
     text-decoration: none;
-    transition: font-weight 0.3s;
-    &-container {
+    &.logo {
       height: 100%;
       display: flex;
       align-items: center;
-    }
-    &-logo {
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
-    &:hover {
-      font-weight: 700;
+      span:first-of-type {
+        margin-right: 0.5rem;
+      }
     }
   }
   &__logo {
@@ -39,7 +33,67 @@
       object-fit: contain;
     }
   }
-  span:first-of-type {
-    margin-right: 0.5rem;
+  &__menu {
+    position: fixed; //cambiar
+    z-index: 20;
+    top: 0; //cambiar
+    right: -100%; //cambiar
+    width: 20.5rem;
+    height: 100vh; //cambiar
+    display: flex;
+    flex-direction: column; //cambiar
+    align-items: flex-start;
+    margin: 0;
+    padding: 2rem 0; //cambiar
+    background-color: var(--lightdark-clr);
+    transition: right 300ms;
+    &.active {
+      right: 0;
+    }
+  }
+  &__item {
+    &-container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      list-style-type: none;
+      padding: 1rem 2rem; //cambiar
+      &.close {
+        margin-bottom: 2rem;
+      }
+    }
+    width: inherit;
+    height: inherit;
+    display: inherit;
+    align-items: inherit;
+    justify-content: flex-end;
+    color: var(--light-clr);
+    text-decoration: none;
+    font-size: var(--ft-size-m);
+    user-select: none;
+    transition: font-weight 0.3s;
+    &:hover {
+      font-weight: 700;
+    }
+    span {
+      margin-left: 1rem;
+    }
+  }
+  &__toggle {
+    background: var(--lightdark-clr);
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    color: var(--white-clr);
+    &-icon {
+      font-size: 2.2rem;
+    }
+    &:focus,
+    &:active {
+      border: 0.1rem solid var(--white-clr);
+    }
   }
 }

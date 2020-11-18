@@ -18,6 +18,24 @@
     &__logo {
       min-width: 9rem;
     }
+    &__menu {
+      position: initial;
+      height: auto;
+      width: auto;
+      flex-direction: row;
+    }
+    &__item {
+      &-container {
+        padding: 0.5rem 1rem;
+        &.close {
+          display: none;
+        }
+      }
+      font-size: var(--ft-size-n);
+    }
+    &__toggle {
+      display: none;
+    }
   }
   .Home {
     &__container {
