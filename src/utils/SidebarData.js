@@ -3,13 +3,13 @@ import { IoMdPersonAdd, IoMdListBox } from "react-icons/io";
 
 export const SidebarData = [
   {
-    title: "Listar badges",
+    title: "Listar",
     path: "/badges",
     icon: <IoMdListBox />,
     className: "Navbar__item fw-light",
   },
   {
-    title: "Agregar badge",
+    title: "Agregar",
     path: "/badges/new",
     icon: <IoMdPersonAdd />,
     className: "Navbar__item fw-light",
