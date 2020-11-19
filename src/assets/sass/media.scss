@@ -20,12 +20,14 @@
     }
     &__menu {
       position: initial;
-      height: auto;
+      height: inherit;
       width: auto;
+      padding: 0.5rem 0;
       flex-direction: row;
     }
     &__item {
       &-container {
+        height: inherit;
         padding: 0.5rem 1rem;
         &.close {
           display: none;

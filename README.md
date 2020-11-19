@@ -1,5 +1,8 @@
 ## Platzi Badges
 
+Deploy in vercel
+
+[platzi-badges]()
 ![platzi badges website](https://repository-images.githubusercontent.com/313504176/40112800-292f-11eb-9a47-870a934390e6)
 
 This is my own version of Platzi Badge, this's developed in React and Sass.<br/>
